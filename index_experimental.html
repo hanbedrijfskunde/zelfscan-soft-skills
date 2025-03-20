@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="nl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Zelfbeoordeling & Reflectie Afstudeerfase</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body class="bg-gray-100 font-sans">
+    <div class="container mx-auto px-4 py-8 max-w-4xl">
+      <header class="mb-8 text-center">
+        <h1 class="text-2xl md:text-3xl font-bold text-blue-800 mb-2">
+          Zelfbeoordeling & Persoonlijke Reflectie
+        </h1>
+        <p class="text-gray-600">
+          Beoordeel jezelf op eindkwalificaties en reflecteer op je persoonlijke
+          ontwikkeling
+        </p>
+      </header>
+
+      <!-- Navigation Tabs -->
+      <div class="mb-6 border-b border-gray-200">
+        <ul
+          class="flex flex-wrap -mb-px text-sm font-medium text-center"
+          id="navigation-tabs"
+          role="tablist"
+        >
+          <li class="mr-2" role="presentation">
+            <button
+              class="inline-block p-4 border-b-2 rounded-t-lg hover:text-blue-600 hover:border-blue-600 active-tab"
+              id="qualifications-tab"
+              data-tabs-target="qualifications-content"
+              type="button"
+              role="tab"
+              aria-controls="qualifications"
+              aria-selected="true"
+            >
+              Eindkwalificaties
+            </button>
+          </li>
+          <li class="mr-2" role="presentation">
+            <button
+              class="inline-block p-4 border-b-2 border-transparent rounded-t-lg hover:text-blue-600 hover:border-blue-600"
+              id="personal-reflection-tab"
+              data-tabs-target="personal-reflection-content"
+              type="button"
+              role="tab"
+              aria-controls="personal-reflection"
+              aria-selected="false"
+            >
+              Persoonlijke Reflectie
+            </button>
+          </li>
+          <li role="presentation">
+            <button
+              class="inline-block p-4 border-b-2 border-transparent rounded-t-lg hover:text-blue-600 hover:border-blue-600"
+              id="results-tab"
+              data-tabs-target="results-content"
+              type="button"
+              role="tab"
+              aria-controls="results"
+              aria-selected="false"
+            >
+              Resultaten
+            </button>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Tab Content -->
+      <div id="tab-content">
+        <!-- Qualifications Tab Content -->
+        <div
+          class="bg-white rounded-lg shadow-lg p-6 mb-8"
+          id="qualifications-content"
+          role="tabpanel"
+          aria-labelledby="qualifications-tab"
+        >
+          <div id="quiz-container">
+            <!-- Will be populated by JavaScript -->
+          </div>
+
+          <div
+            class="flex flex-col sm:flex-row justify-between mt-8 space-y-4 sm:space-y-0"
+          >
+            <button
+              id="reset-btn"
+              class="px-4 py-2 bg-gray-300 text-gray-700 rounded-md hover:bg-gray-400 focus:outline-none focus:ring-2 focus:ring-gray-500"
+            >
+              Reset formulier
+            </button>
+            <button
+              id="next-to-personal"
+              class="px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
+            >
+              Volgende: Persoonlijke Reflectie
+            </button>
+          </div>
+        </div>
+
+        <!-- Personal Reflection Tab Content -->
+        <div
+          class="hidden bg-white rounded-lg shadow-lg p-6 mb-8"
+          id="personal-reflection-content"
+          role="tabpanel"
+          aria-labelledby="personal-reflection-tab"
+        >
+          <h2 class="text-2xl font-bold text-blue-800 mb-4">
+            Persoonlijke Reflectie
+          </h2>
+          <p class="text-gray-600 mb-6">
+            Reflecteer op je persoonlijke ontwikkeling tijdens het
+            afstudeerproces (max. 6 pagina's)
+          </p>
+
+          <div class="bg-blue-50 p-4 rounded-md mb-6">
+            <h3 class="text-lg font-medium text-blue-700 mb-2">
+              Reflectiemodel STARR
+            </h3>
+            <p class="text-gray-700 mb-4">
+              Gebruik het STARR model om te reflecteren op concrete situaties:
+            </p>
+            <ul class="list-disc pl-6 text-gray-700">
+              <li>
+                <strong>S</strong>ituatie: Beschrijf een concrete situatie
+              </li>
+              <li><strong>T</strong>aak: Wat was jouw taak/rol hierin?</li>
+              <li><strong>A</strong>ctie: Wat heb je gedaan?</li>
+              <li><strong>R</strong>esultaat: Wat was het resultaat?</li>
+              <li><strong>R</strong>eflectie: Wat heb je hiervan geleerd?</li>
+            </ul>
+          </div>
+
+          <div id="reflection-container">
+            <!-- Will be populated by JavaScript -->
+          </div>
+
+          <div
+            class="flex flex-col sm:flex-row justify-between mt-8 space-y-4 sm:space-y-0 sm:space-x-4"
+          >
+            <button
+              id="back-to-qualifications"
+              class="px-4 py-2 bg-gray-300 text-gray-700 rounded-md hover:bg-gray-400 focus:outline-none focus:ring-2 focus:ring-gray-500"
+            >
+              Terug naar Eindkwalificaties
+            </button>
+            <button
+              id="view-results"
+              class="px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
+            >
+              Resultaten bekijken
+            </button>
+          </div>
+        </div>
+
+        <!-- Results Tab Content -->
+        <div
+          class="hidden bg-white rounded-lg shadow-lg p-6 mb-8"
+          id="results-content"
+          role="tabpanel"
+          aria-labelledby="results-tab"
+        >
+          <h2 class="text-2xl font-bold text-blue-800 mb-4">Jouw resultaten</h2>
+
+          <div class="mb-6">
+            <div
+              class="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-4 space-y-2 sm:space-y-0"
+            >
+              <h3 class="text-xl font-medium">
+                Jouw scores op eindkwalificaties
+              </h3>
+              <div
+                class="flex flex-col sm:flex-row space-y-2 sm:space-y-0 sm:space-x-4"
+              >
+                <button
+                  id="save-btn"
+                  class="px-4 py-2 bg-green-600 text-white rounded-md hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-500"
+                >
+                  Opslaan als PDF
+                </button>
+                <button
+                  id="back-to-edit"
+                  class="px-4 py-2 bg-gray-300 text-gray-700 rounded-md hover:bg-gray-400 focus:outline-none focus:ring-2 focus:ring-gray-500"
+                >
+                  Terug naar bewerken
+                </button>
+              </div>
+            </div>
+            <div class="bg-blue-50 p-4 rounded-md">
+              <div
+                id="results-summary"
+                class="grid grid-cols-1 md:grid-cols-2 gap-4"
+              >
+                <!-- Results will be populated here by JavaScript -->
+              </div>
+            </div>
+          </div>
+
+          <div>
+            <h3 class="text-xl font-medium mb-3">Grafische weergave</h3>
+            <div class="bg-white p-4 rounded-md border border-gray-200">
+              <div class="flex justify-center">
+                <div class="radar-chart-container w-full max-w-md">
+                  <canvas id="radar-chart" width="400" height="400"></canvas>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="mt-6">
+            <h3 class="text-xl font-medium mb-3">
+              Jouw toelichtingen bij eindkwalificaties
+            </h3>
+            <div id="comments-container" class="space-y-4">
+              <!-- Comments will be populated here by JavaScript -->
+            </div>
+          </div>
+
+          <div class="mt-6">
+            <h3 class="text-xl font-medium mb-3">Persoonlijke reflecties</h3>
+            <div class="bg-gray-50 p-4 rounded-md">
+              <div id="reflection-summary" class="space-y-4">
+                <!-- Full reflection content will be populated here by JavaScript -->
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Load scripts in the correct order -->
+    <script src="config.js"></script>
+    <script src="utils.js"></script>
+    <script src="templates.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>
