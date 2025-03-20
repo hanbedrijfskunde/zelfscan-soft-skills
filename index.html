@@ -2,13 +2,11 @@
 <html lang="nl">
   <head>
     <meta charset="UTF-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
-    />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Zelfbeoordeling & Reflectie Afstudeerfase</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
     <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
   </head>
   <body class="bg-gray-100 font-sans">
     <div class="container mx-auto px-4 py-8 max-w-4xl">
@@ -611,6 +609,7 @@
               <textarea
                 name="starr-action"
                 rows="3"
+                rows="3"
                 class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
               ></textarea>
             </div>
@@ -636,14 +635,6 @@
                 class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
               ></textarea>
             </div>
-
-            <button
-              id="add-starr"
-              type="button"
-              class="px-3 py-1 bg-green-500 text-white rounded-md hover:bg-green-600 focus:outline-none focus:ring-2 focus:ring-green-500"
-            >
-              + Nog een STARR reflectie toevoegen
-            </button>
           </div>
 
           <!-- Moral Compass Section -->
@@ -782,12 +773,10 @@
           </div>
 
           <div class="mt-6">
-            <h3 class="text-xl font-medium mb-3">
-              Samenvatting van je reflecties
-            </h3>
+            <h3 class="text-xl font-medium mb-3">Persoonlijke reflecties</h3>
             <div class="bg-gray-50 p-4 rounded-md">
               <div id="reflection-summary" class="space-y-4">
-                <!-- Reflection summary will be populated here by JavaScript -->
+                <!-- Full reflection content will be populated here by JavaScript -->
               </div>
             </div>
           </div>
@@ -820,21 +809,16 @@
 
         // Cache DOM Elements
         const elements = {
-          // Navigation
           navTabs: document.querySelectorAll("[data-tabs-target]"),
           tabContent: document.querySelectorAll("#tab-content > div"),
-          // Navigation buttons
           nextToPersonal: document.getElementById("next-to-personal"),
           backToQualifications: document.getElementById(
             "back-to-qualifications"
           ),
           viewResults: document.getElementById("view-results"),
           backToEdit: document.getElementById("back-to-edit"),
-          // Action buttons
           resetBtn: document.getElementById("reset-btn"),
           saveBtn: document.getElementById("save-btn"),
-          addStarr: document.getElementById("add-starr"),
-          // Results containers
           resultsSummary: document.getElementById("results-summary"),
           commentsContainer: document.getElementById("comments-container"),
           reflectionSummary: document.getElementById("reflection-summary"),
@@ -887,9 +871,14 @@
             document.getElementById("qualifications-tab").click();
           });
 
-          // Navigation buttons voor zakelijke reflectie zijn verwijderd
-
           elements.viewResults.addEventListener("click", () => {
+            const formData = getFormData();
+            if (!formData.isComplete) {
+              alert(
+                "Zorg ervoor dat je alle eindkwalificaties hebt beoordeeld voordat je de resultaten bekijkt."
+              );
+              return; // Prevent navigation to results tab
+            }
             generateResults();
             document.getElementById("results-tab").click();
           });
@@ -901,7 +890,6 @@
           // Action buttons
           elements.resetBtn.addEventListener("click", handleReset);
           elements.saveBtn.addEventListener("click", handleSavePdf);
-          elements.addStarr.addEventListener("click", addStarrReflection);
         }
 
         // Data collection functions
@@ -911,7 +899,6 @@
             comments: {},
             isComplete: true,
             personalReflection: {},
-            // Zakelijke reflectie is verwijderd
           };
 
           // Collect qualification scores and comments
@@ -937,8 +924,6 @@
               formData.personalReflection[textarea.name] = textarea.value || "";
             });
 
-          // Zakelijke reflectie is verwijderd
-
           return formData;
         }
 
@@ -946,6 +931,7 @@
         function handleReset() {
           if (confirm("Weet je zeker dat je alle antwoorden wilt wissen?")) {
             resetForm();
+            alert("Formulier is gereset."); // User feedback for reset action
           }
         }
 
@@ -966,74 +952,6 @@
           } catch (error) {
             console.error("Error generating PDF:", error);
             alert("Er is een fout opgetreden bij het genereren van de PDF.");
-          }
-        }
-
-        function addStarrReflection() {
-          // Selecteer de STARR containers die binnen de persoonlijke reflectie sectie staan
-          const reflectionSection = document.getElementById(
-            "personal-reflection-content"
-          );
-          const existingStarrContainers = reflectionSection.querySelectorAll(
-            ".border.p-4.rounded-md"
-          );
-
-          // Selecteer de laatste container als basis voor de kloon
-          const lastStarrContainer =
-            existingStarrContainers[existingStarrContainers.length - 1];
-
-          // Maak een diepe kopie van de container
-          const newStarrContainer = lastStarrContainer.cloneNode(true);
-
-          // Reset formuliervelden in de nieuwe container
-          newStarrContainer.querySelectorAll("textarea").forEach((textarea) => {
-            textarea.value = "";
-            // Update namen om ze uniek te maken
-            const baseName = textarea.name.split("-")[0]; // Pak basis naam zonder nummers
-            const count = existingStarrContainers.length + 1;
-            textarea.name = `${baseName}-${count}`;
-          });
-
-          // Update de titel van de nieuwe reflectie
-          const heading = newStarrContainer.querySelector("h3");
-          if (heading) {
-            heading.textContent = `STARR Reflectie ${
-              existingStarrContainers.length + 1
-            }`;
-          }
-
-          // Voeg een verwijder-knop toe aan de nieuwe container
-          const removeBtn = document.createElement("button");
-          removeBtn.type = "button";
-          removeBtn.className =
-            "px-3 py-1 ml-2 bg-red-500 text-white rounded-md hover:bg-red-600 focus:outline-none focus:ring-2 focus:ring-red-500";
-          removeBtn.textContent = "- Verwijder deze reflectie";
-          removeBtn.addEventListener("click", function () {
-            newStarrContainer.remove();
-          });
-
-          // Vervang de add-knop in de nieuwe container met een verwijder-knop
-          const newAddBtn = newStarrContainer.querySelector("#add-starr");
-          if (newAddBtn) {
-            newAddBtn.replaceWith(removeBtn);
-          } else {
-            newStarrContainer.appendChild(removeBtn);
-          }
-
-          // Voeg de nieuwe container toe direct na de laatste STARR container
-          lastStarrContainer.after(newStarrContainer);
-
-          // Focus op het eerste tekstveld van de nieuwe container
-          const firstTextarea = newStarrContainer.querySelector("textarea");
-          if (firstTextarea) {
-            setTimeout(() => {
-              firstTextarea.focus();
-              // Scroll naar de nieuwe container
-              newStarrContainer.scrollIntoView({
-                behavior: "smooth",
-                block: "start",
-              });
-            }, 100);
           }
         }
 
@@ -1102,36 +1020,195 @@
         }
 
         function displayReflectionSummary(formData) {
-          // Create summary for personal reflection
+          // Create detailed view for personal reflection
           const personalReflection = formData.personalReflection;
-          const personalSummary = document.createElement("div");
-          personalSummary.className = "mb-4";
-          personalSummary.innerHTML = `
-                    <h4 class="font-medium mb-2">Persoonlijke Reflectie</h4>
-                    <p class="mb-2"><strong>Professionele ontwikkeling:</strong> ${summarizeText(
-                      personalReflection["prof-development-now"] || "",
-                      100
-                    )}</p>
-                    <p class="mb-2"><strong>Moreel kompas:</strong> ${summarizeText(
-                      personalReflection["moral-compass"] || "",
-                      100
-                    )}</p>
-                `;
-          elements.reflectionSummary.appendChild(personalSummary);
+          const reflectionSummaryDiv = document.createElement("div"); // Container for all reflection sections
+          reflectionSummaryDiv.className = "space-y-6"; // Add vertical spacing between sections
 
-          // Zakelijke reflectie is verwijderd
+          // Function to create a reflection section
+          const createReflectionSection = (title, contentName, label) => {
+            const section = document.createElement("div");
+            section.className = "mb-4";
+            section.innerHTML = `
+                  <h4 class="font-medium text-lg text-blue-700 mb-3">${title}</h4>
+              `;
+            return section;
+          };
+
+          // Professional Development Section
+          reflectionSummaryDiv.appendChild(
+            createReflectionSection(
+              "Professionele ontwikkeling",
+              "prof-development-section",
+              "Professionele ontwikkeling"
+            )
+          );
+
+          const profDevSection = document.createElement("div");
+          profDevSection.className = "bg-gray-50 p-4 rounded-md mb-4 space-y-4";
+          profDevSection.innerHTML += `
+                    <div class="mb-3">
+                        <p class="font-medium mb-1">Hoe keek je aan het begin tegen je professionele ontwikkeling aan?</p>
+                        <p class="text-gray-700 bg-white border border-gray-200 p-2 rounded whitespace-pre-line">${
+                          (
+                            personalReflection["prof-development-start"] || ""
+                          ).trim() ||
+                          '<span class="italic text-gray-500">Niet ingevuld</span>'
+                        }</p>
+                    </div>
+                    <div class="mb-3">
+                        <p class="font-medium mb-1">Wat vond je al wel goed gaan en wat niet?</p>
+                        <p class="text-gray-700 bg-white border border-gray-200 p-2 rounded whitespace-pre-line">${
+                          (
+                            personalReflection["prof-strengths-weaknesses"] ||
+                            ""
+                          ).trim() ||
+                          '<span class="italic text-gray-500">Niet ingevuld</span>'
+                        }</p>
+                    </div>
+                    <div class="mb-3">
+                        <p class="font-medium mb-1">Hoe kijk je er nu naar je professionele houding en wat is er veranderd?</p>
+                        <p class="text-gray-700 bg-white border border-gray-200 p-2 rounded whitespace-pre-line">${
+                          (
+                            personalReflection["prof-development-now"] || ""
+                          ).trim() ||
+                          '<span class="italic text-gray-500">Niet ingevuld</span>'
+                        }</p>
+                    </div>
+                `;
+          reflectionSummaryDiv.appendChild(profDevSection);
+
+          // Moral Compass Section
+          reflectionSummaryDiv.appendChild(
+            createReflectionSection(
+              "Moreel kompas",
+              "moral-compass-section",
+              "Moreel kompas"
+            )
+          );
+
+          const moralSection = document.createElement("div");
+          moralSection.className = "bg-gray-50 p-4 rounded-md mb-4 space-y-4";
+          moralSection.innerHTML += `
+                    <div class="mb-3">
+                        <p class="font-medium mb-1">Hoe zie jij je eigen morele kompas? Heb je een voorbeeld waarbij je op je morele kompas hebt gevaren?</p>
+                        <p class="text-gray-700 bg-white border border-gray-200 p-2 rounded whitespace-pre-line">${
+                          (personalReflection["moral-compass"] || "").trim() ||
+                          '<span class="italic text-gray-500">Niet ingevuld</span>'
+                        }</p>
+                    </div>
+                    <div class="mb-3">
+                        <p class="font-medium mb-1">Welke strategische keuzes/dilemma's ben je tegengekomen?</p>
+                        <p class="text-gray-700 bg-white border border-gray-200 p-2 rounded whitespace-pre-line">${
+                          (
+                            personalReflection["strategic-dilemmas"] || ""
+                          ).trim() ||
+                          '<span class="italic text-gray-500">Niet ingevuld</span>'
+                        }</p>
+                    </div>
+                    <div class="mb-3">
+                        <p class="font-medium mb-1">Welke morele dilemma's ben je tegengekomen?</p>
+                        <p class="text-gray-700 bg-white border border-gray-200 p-2 rounded whitespace-pre-line">${
+                          (personalReflection["moral-dilemmas"] || "").trim() ||
+                          '<span class="italic text-gray-500">Niet ingevuld</span>'
+                        }</p>
+                    </div>
+                    <div class="mb-3">
+                        <p class="font-medium mb-1">Had je dat voorzien van tevoren? Hoe bewust heb je hier gehandeld?</p>
+                        <p class="text-gray-700 bg-white border border-gray-200 p-2 rounded whitespace-pre-line">${
+                          (
+                            personalReflection["moral-foresight"] || ""
+                          ).trim() ||
+                          '<span class="italic text-gray-500">Niet ingevuld</span>'
+                        }</p>
+                    </div>
+                `;
+          reflectionSummaryDiv.appendChild(moralSection);
+
+          // STARR Reflection Section
+          reflectionSummaryDiv.appendChild(
+            createReflectionSection(
+              "STARR Reflectie",
+              "starr-reflection-section",
+              "STARR Reflectie"
+            )
+          );
+          const starrReflection = {
+            situation: personalReflection["starr-situation"] || "",
+            task: personalReflection["starr-task"] || "",
+            action: personalReflection["starr-action"] || "",
+            result: personalReflection["starr-result"] || "",
+            reflection: personalReflection["starr-reflection"] || "",
+          };
+          const starrContainer = document.createElement("div");
+          starrContainer.className = "bg-gray-50 p-4 rounded-md mb-4 space-y-4";
+          let starrHtml = ``;
+
+          if (
+            !(starrReflection.situation || "").trim() &&
+            !(starrReflection.task || "").trim() &&
+            !(starrReflection.action || "").trim() &&
+            !(starrReflection.result || "").trim() &&
+            !(starrReflection.reflection || "").trim()
+          ) {
+            starrHtml += `<p class="text-gray-500 italic">Geen STARR reflectie ingevuld.</p>`;
+          } else {
+            starrHtml += `
+
+                      <div class="mb-3">
+                          <p class="font-medium mb-1">Situatie:</p>
+                          <p class="text-gray-700 bg-white border border-gray-200 p-2 rounded whitespace-pre-line">${
+                            (starrReflection.situation || "").trim() ||
+                            "Niet ingevuld"
+                          }</p>
+                      </div>
+                      <div class="mb-3">
+                          <p class="font-medium mb-1">Taak:</p>
+                          <p class="text-gray-700 bg-white border border-gray-200 p-2 rounded whitespace-pre-line">${
+                            (starrReflection.task || "").trim() ||
+                            "Niet ingevuld"
+                          }</p>
+                      </div>
+                      <div class="mb-3">
+                          <p class="font-medium mb-1">Actie:</p>
+                          <p class="text-gray-700 bg-white border border-gray-200 p-2 rounded whitespace-pre-line">${
+                            (starrReflection.action || "").trim() ||
+                            "Niet ingevuld"
+                          }</p>
+                      </div>
+                      <div class="mb-3">
+                          <p class="font-medium mb-1">Resultaat:</p>
+                          <p class="text-gray-700 bg-white border border-gray-200 p-2 rounded whitespace-pre-line">${
+                            (starrReflection.result || "").trim() ||
+                            "Niet ingevuld"
+                          }</p>
+                      </div>
+                      <div class="mb-3">
+                          <p class="font-medium mb-1">Reflectie:</p>
+                          <p class="text-gray-700 bg-white border border-gray-200 p-2 rounded whitespace-pre-line">${
+                            (starrReflection.reflection || "").trim() ||
+                            "Niet ingevuld"
+                          }</p>
+                      </div>
+
+              `;
+          }
+          starrContainer.innerHTML = starrHtml;
+          reflectionSummaryDiv.appendChild(starrContainer);
+
+          elements.reflectionSummary.appendChild(reflectionSummaryDiv); // Append the container to the results
         }
 
-        function summarizeText(text, maxLength) {
-          if (!text || text.trim() === "") {
-            return '<span class="text-gray-500 italic">Niet ingevuld</span>';
-          }
-
-          if (text.length <= maxLength) {
-            return text;
-          }
-
-          return text.substring(0, maxLength) + "...";
+        function collectStarrReflections(formData) {
+          return [
+            {
+              situation: formData["starr-situation"] || "",
+              task: formData["starr-task"] || "",
+              action: formData["starr-action"] || "",
+              result: formData["starr-result"] || "",
+              reflection: formData["starr-reflection"] || "",
+            },
+          ];
         }
 
         // Chart Functions
