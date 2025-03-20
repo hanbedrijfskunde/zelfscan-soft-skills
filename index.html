@@ -1,527 +1,734 @@
 <!DOCTYPE html>
 <html lang="nl">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
     <title>Zelfbeoordeling Eindkwalificaties</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
     <script src="https://cdn.tailwindcss.com"></script>
-</head>
-<body class="bg-gray-100 font-sans">
+  </head>
+  <body class="bg-gray-100 font-sans">
     <div class="container mx-auto px-4 py-8 max-w-4xl">
-        <header class="mb-8 text-center">
-            <h1 class="text-3xl font-bold text-blue-800 mb-2">Zelfbeoordeling Eindkwalificaties</h1>
-            <p class="text-gray-600">Beoordeel jezelf op een schaal van 0 tot 3 voor elk van de kwalificaties</p>
-        </header>
+      <header class="mb-8 text-center">
+        <h1 class="text-2xl md:text-3xl font-bold text-blue-800 mb-2">
+          Zelfbeoordeling Eindkwalificaties
+        </h1>
+        <p class="text-gray-600">
+          Beoordeel jezelf op een schaal van 0 tot 3 voor elk van de
+          kwalificaties
+        </p>
+      </header>
 
-        <div class="bg-white rounded-lg shadow-lg p-6 mb-8">
-            <div id="quiz-container">
-                <!-- Kwalificatie 6 -->
-                <div class="qualification-section mb-8 border-b pb-6">
-                    <h2 class="text-2xl font-semibold text-blue-700 mb-3">Eindkwalificatie 6: Sociaal communicatieve vaardigheden</h2>
-                    <p class="text-gray-700 mb-4 italic">Omschrijving: Ik pas communicatievaardigheden effectief toe om bedrijfskundige doelstellingen te realiseren. Ik communiceer mijn boodschap op een passende wijze naar diverse belanghebbenden.</p>
-                    
-                    <div class="mb-4">
-                        <h3 class="text-lg font-medium text-blue-600 mb-2">Beoordelingscriteria (niveau Voldoende):</h3>
-                        <ul class="list-disc pl-6 mb-4 text-gray-700">
-                            <li>Ik zet communicatie doelbewust in en afgestemd op de doelgroep.</li>
-                            <li>Ik creëer draagvlak bij stakeholders met uiteenlopende belangen.</li>
-                            <li>Ik motiveer mensen tot een constructieve bijdrage.</li>
-                            <li>Ik toon in mijn handelen bewustzijn van mijn persoonlijke rol in de interactie met anderen.</li>
-                            <li>Ik kan gespreksvaardigheden inzetten om het behalen van bedrijfskundige doelen te sturen.</li>
-                        </ul>
-                        <div class="bg-blue-50 p-4 rounded-md mb-4">
-                            <h3 class="text-lg font-medium text-blue-600 mb-2">Onderscheidend:</h3>
-                            <ul class="list-disc pl-6 text-gray-700">
-                                <li>Ik kan op overtuigende wijze beargumenteren dat het gegeven advies een daadwerkelijke oplossing is voor het probleem.</li>
-                                <li>Mijn toelichting/beantwoording en discussie leiden tot nieuwe perspectieven op langere termijn m.b.t. het onderwerp voor de organisatie en de sector.</li>
-                            </ul>
-                        </div>
-                    </div>
-                    
-                    <div class="mb-4">
-                        <label class="block text-gray-700 font-medium mb-2">Je score:</label>
-                        <div class="flex space-x-4">
-                            <label class="inline-flex items-center">
-                                <input type="radio" name="score-6" value="0" class="form-radio text-blue-600">
-                                <span class="ml-2">0 - Onvoldoende</span>
-                            </label>
-                            <label class="inline-flex items-center">
-                                <input type="radio" name="score-6" value="1" class="form-radio text-blue-600">
-                                <span class="ml-2">1 - Voldoende</span>
-                            </label>
-                            <label class="inline-flex items-center">
-                                <input type="radio" name="score-6" value="2" class="form-radio text-blue-600">
-                                <span class="ml-2">2 - Goed</span>
-                            </label>
-                            <label class="inline-flex items-center">
-                                <input type="radio" name="score-6" value="3" class="form-radio text-blue-600">
-                                <span class="ml-2">3 - Uitstekend</span>
-                            </label>
-                        </div>
-                    </div>
-                    
-                    <div>
-                        <label class="block text-gray-700 font-medium mb-2">Toelichting (optioneel):</label>
-                        <textarea name="comment-6" rows="3" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"></textarea>
-                    </div>
-                </div>
-
-                <!-- Kwalificatie 7 -->
-                <div class="qualification-section mb-8 border-b pb-6">
-                    <h2 class="text-2xl font-semibold text-blue-700 mb-3">Eindkwalificatie 7: Schakelen en verbinden</h2>
-                    <p class="text-gray-700 mb-4 italic">Omschrijving: Ik ben regisseur van het onderzoeksproces en kan contacten inzetten in verschillende situaties om doelen te bereiken. Ik ben me bewust van de verschillende rollen en reflecteer hierop. Ik toon me daarbij bewust van culturele diversiteit en houd daarmee rekening.</p>
-                    
-                    <div class="mb-4">
-                        <h3 class="text-lg font-medium text-blue-600 mb-2">Beoordelingscriteria (niveau Voldoende):</h3>
-                        <ul class="list-disc pl-6 mb-4 text-gray-700">
-                            <li>Ik ben regisseur van het onderzoeksproces.</li>
-                            <li>Ik kan contacten inzetten in verschillende situaties om doelen te bereiken.</li>
-                            <li>Ik weet wat er nodig is om relevante verbindingen te leggen tussen mensen en de verschillende functies/disciplines en niveaus en kan daar soepel tussen schakelen.</li>
-                            <li>Ik ben bewust van culturele diversiteit en houd daar rekening mee.</li>
-                        </ul>
-                        <div class="bg-blue-50 p-4 rounded-md mb-4">
-                            <h3 class="text-lg font-medium text-blue-600 mb-2">Onderscheidend:</h3>
-                            <ul class="list-disc pl-6 text-gray-700">
-                                <li>Ik weet relevante stakeholders (in- en extern) bij het traject optimaal te betrekken en in te zetten om tot een optimaal resultaat te komen.</li>
-                                <li>Ik wissel in rol afhankelijk van de context.</li>
-                            </ul>
-                        </div>
-                    </div>
-                    
-                    <div class="mb-4">
-                        <label class="block text-gray-700 font-medium mb-2">Je score:</label>
-                        <div class="flex space-x-4">
-                            <label class="inline-flex items-center">
-                                <input type="radio" name="score-7" value="0" class="form-radio text-blue-600">
-                                <span class="ml-2">0 - Onvoldoende</span>
-                            </label>
-                            <label class="inline-flex items-center">
-                                <input type="radio" name="score-7" value="1" class="form-radio text-blue-600">
-                                <span class="ml-2">1 - Voldoende</span>
-                            </label>
-                            <label class="inline-flex items-center">
-                                <input type="radio" name="score-7" value="2" class="form-radio text-blue-600">
-                                <span class="ml-2">2 - Goed</span>
-                            </label>
-                            <label class="inline-flex items-center">
-                                <input type="radio" name="score-7" value="3" class="form-radio text-blue-600">
-                                <span class="ml-2">3 - Uitstekend</span>
-                            </label>
-                        </div>
-                    </div>
-                    
-                    <div>
-                        <label class="block text-gray-700 font-medium mb-2">Toelichting (optioneel):</label>
-                        <textarea name="comment-7" rows="3" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"></textarea>
-                    </div>
-                </div>
-
-                <!-- Kwalificatie 8 -->
-                <div class="qualification-section mb-8 border-b pb-6">
-                    <h2 class="text-2xl font-semibold text-blue-700 mb-3">Eindkwalificatie 8: Professionaliseren</h2>
-                    <p class="text-gray-700 mb-4 italic">Omschrijving: Ik borg kennis en zorg voor een correcte overdracht en verspreiding, waardoor een bijdrage wordt geleverd aan de ontwikkeling van de organisatie en de bedrijfskundige beroepspraktijk. Ik kan daarbij mijn eigen handelen verantwoorden en ben in een continu proces bezig te reflecteren op mijn eigen handelen en me te ontwikkelen.</p>
-                    
-                    <div class="mb-4">
-                        <h3 class="text-lg font-medium text-blue-600 mb-2">Beoordelingscriteria (niveau Voldoende):</h3>
-                        <ul class="list-disc pl-6 mb-4 text-gray-700">
-                            <li>Ik verspreid en borg opgedane kennis en lever daarmee een bijdrage aan de ontwikkeling van de organisatie en de bedrijfskundige beroepspraktijk.</li>
-                            <li>Ik verantwoord mijn eigen handelen.</li>
-                            <li>Ik kan in een continu proces reflecteren op mijn eigen handelen en toekomstige ontwikkelproces.</li>
-                        </ul>
-                        <div class="bg-blue-50 p-4 rounded-md mb-4">
-                            <h3 class="text-lg font-medium text-blue-600 mb-2">Onderscheidend:</h3>
-                            <ul class="list-disc pl-6 text-gray-700">
-                                <li>Ik ben me bewust van de rol die ik heb aangenomen in het onderzoeksproces.</li>
-                                <li>Ik heb die rol bewust afgestemd op het vraagstuk, de organisatie en mijn eigen voorkeuren.</li>
-                            </ul>
-                        </div>
-                    </div>
-                    
-                    <div class="mb-4">
-                        <label class="block text-gray-700 font-medium mb-2">Je score:</label>
-                        <div class="flex space-x-4">
-                            <label class="inline-flex items-center">
-                                <input type="radio" name="score-8" value="0" class="form-radio text-blue-600">
-                                <span class="ml-2">0 - Onvoldoende</span>
-                            </label>
-                            <label class="inline-flex items-center">
-                                <input type="radio" name="score-8" value="1" class="form-radio text-blue-600">
-                                <span class="ml-2">1 - Voldoende</span>
-                            </label>
-                            <label class="inline-flex items-center">
-                                <input type="radio" name="score-8" value="2" class="form-radio text-blue-600">
-                                <span class="ml-2">2 - Goed</span>
-                            </label>
-                            <label class="inline-flex items-center">
-                                <input type="radio" name="score-8" value="3" class="form-radio text-blue-600">
-                                <span class="ml-2">3 - Uitstekend</span>
-                            </label>
-                        </div>
-                    </div>
-                    
-                    <div>
-                        <label class="block text-gray-700 font-medium mb-2">Toelichting (optioneel):</label>
-                        <textarea name="comment-8" rows="3" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"></textarea>
-                    </div>
-                </div>
-
-                <!-- Kwalificatie 9 -->
-                <div class="qualification-section mb-8">
-                    <h2 class="text-2xl font-semibold text-blue-700 mb-3">Eindkwalificatie 9: Handelen vanuit waarden</h2>
-                    <p class="text-gray-700 mb-4 italic">Omschrijving: Ik toon bewustzijn van ethische dilemma's en streef naar maatschappelijk verantwoorde bedrijfskundige oplossingen. Hierbij worden de belangen van zowel externe als interne belanghebbenden zorgvuldig afgewogen.</p>
-                    
-                    <div class="mb-4">
-                        <h3 class="text-lg font-medium text-blue-600 mb-2">Beoordelingscriteria (niveau Voldoende):</h3>
-                        <ul class="list-disc pl-6 mb-4 text-gray-700">
-                            <li>Ik ben me bewust vanuit welke waarden en normen ik gehandeld heb.</li>
-                            <li>Ik leg op basis hiervan verantwoording af over keuzes die ik heb gemaakt.</li>
-                            <li>Ik streef bij het oplossen van bedrijfskundige vraagstukken naar duurzame maatschappelijk verantwoorde oplossingen.</li>
-                        </ul>
-                        <div class="bg-blue-50 p-4 rounded-md mb-4">
-                            <h3 class="text-lg font-medium text-blue-600 mb-2">Onderscheidend:</h3>
-                            <ul class="list-disc pl-6 text-gray-700">
-                                <li>Ik kan op de gemaakte keuzes kritisch reflecteren rondom ethische dilemma's.</li>
-                                <li>Ik kan de consequenties van keuzes overzien, niet alleen van de output, maar ook van de outcome (mogelijke effecten en de impact daarvan) voor de langere termijn.</li>
-                            </ul>
-                        </div>
-                    </div>
-                    
-                    <div class="mb-4">
-                        <label class="block text-gray-700 font-medium mb-2">Je score:</label>
-                        <div class="flex space-x-4">
-                            <label class="inline-flex items-center">
-                                <input type="radio" name="score-9" value="0" class="form-radio text-blue-600">
-                                <span class="ml-2">0 - Onvoldoende</span>
-                            </label>
-                            <label class="inline-flex items-center">
-                                <input type="radio" name="score-9" value="1" class="form-radio text-blue-600">
-                                <span class="ml-2">1 - Voldoende</span>
-                            </label>
-                            <label class="inline-flex items-center">
-                                <input type="radio" name="score-9" value="2" class="form-radio text-blue-600">
-                                <span class="ml-2">2 - Goed</span>
-                            </label>
-                            <label class="inline-flex items-center">
-                                <input type="radio" name="score-9" value="3" class="form-radio text-blue-600">
-                                <span class="ml-2">3 - Uitstekend</span>
-                            </label>
-                        </div>
-                    </div>
-                    
-                    <div>
-                        <label class="block text-gray-700 font-medium mb-2">Toelichting (optioneel):</label>
-                        <textarea name="comment-9" rows="3" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"></textarea>
-                    </div>
-                </div>
+      <div class="bg-white rounded-lg shadow-lg p-6 mb-8">
+        <div id="quiz-container">
+          <!-- Kwalificatie 6 -->
+          <div class="qualification-section mb-8 border-b pb-6">
+            <h2 class="text-2xl font-semibold text-blue-700 mb-3">
+              Eindkwalificatie 6: Sociaal communicatieve vaardigheden
+            </h2>
+            <div class="mb-4">
+              <div class="bg-gray-50 p-4 rounded-md mb-4">
+                <h3 class="text-lg font-medium text-blue-600 mb-2">
+                  Voldoende:
+                </h3>
+                <ul class="list-disc pl-6 text-gray-700">
+                  <li>
+                    Ik zet communicatie doelbewust in en afgestemd op de
+                    doelgroep.
+                  </li>
+                  <li>
+                    Ik creëer draagvlak bij stakeholders met uiteenlopende
+                    belangen.
+                  </li>
+                  <li>Ik motiveer mensen tot een constructieve bijdrage.</li>
+                  <li>
+                    Ik toon in mijn handelen bewustzijn van mijn persoonlijke
+                    rol in de interactie met anderen.
+                  </li>
+                  <li>
+                    Ik kan gespreksvaardigheden inzetten om het behalen van
+                    bedrijfskundige doelen te sturen.
+                  </li>
+                </ul>
+              </div>
+              <div class="bg-blue-50 p-4 rounded-md mb-4">
+                <h3 class="text-lg font-medium text-blue-600 mb-2">
+                  Onderscheidend:
+                </h3>
+                <ul class="list-disc pl-6 text-gray-700">
+                  <li>
+                    Ik kan op overtuigende wijze beargumenteren dat het gegeven
+                    advies een daadwerkelijke oplossing is voor het probleem.
+                  </li>
+                  <li>
+                    Mijn toelichting/beantwoording en discussie leiden tot
+                    nieuwe perspectieven op langere termijn m.b.t. het onderwerp
+                    voor de organisatie en de sector.
+                  </li>
+                </ul>
+              </div>
             </div>
 
-            <div class="flex justify-between mt-8">
-                <button id="reset-btn" class="px-4 py-2 bg-gray-300 text-gray-700 rounded-md hover:bg-gray-400 focus:outline-none focus:ring-2 focus:ring-gray-500">
-                    Reset formulier
-                </button>
-                <div class="space-x-4">
-                    <button id="save-btn" class="px-4 py-2 bg-green-600 text-white rounded-md hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-500">
-                        Opslaan als PDF
-                    </button>
-                    <button id="submit-btn" class="px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500">
-                        Resultaten bekijken
-                    </button>
-                </div>
+            <div class="mb-4">
+              <label class="block text-gray-700 font-medium mb-2"
+                >Je score:</label
+              >
+              <div class="flex flex-col md:flex-row md:space-x-4">
+                <label class="inline-flex items-center mb-2">
+                  <input
+                    type="radio"
+                    name="score-6"
+                    value="0"
+                    class="form-radio text-blue-600"
+                  />
+                  <span class="ml-2">0 - Onvoldoende</span>
+                </label>
+                <label class="inline-flex items-center mb-2">
+                  <input
+                    type="radio"
+                    name="score-6"
+                    value="1"
+                    class="form-radio text-blue-600"
+                  />
+                  <span class="ml-2">1 - Voldoende</span>
+                </label>
+                <label class="inline-flex items-center mb-2">
+                  <input
+                    type="radio"
+                    name="score-6"
+                    value="2"
+                    class="form-radio text-blue-600"
+                  />
+                  <span class="ml-2">2 - Goed</span>
+                </label>
+                <label class="inline-flex items-center mb-2">
+                  <input
+                    type="radio"
+                    name="score-6"
+                    value="3"
+                    class="form-radio text-blue-600"
+                  />
+                  <span class="ml-2">3 - Onderscheidend</span>
+                </label>
+              </div>
             </div>
-        </div>
 
-        <!-- Results Section (initially hidden) -->
-        <div id="results-section" class="bg-white rounded-lg shadow-lg p-6 mb-8 hidden">
-            <h2 class="text-2xl font-bold text-blue-800 mb-4">Jouw resultaten</h2>
-            
-            <div class="mb-6">
-                <div class="flex justify-between items-center mb-2">
-                    <h3 class="text-xl font-medium">Jouw scores</h3>
-                    <button id="back-to-form" class="text-blue-600 hover:text-blue-800">Terug naar formulier</button>
-                </div>
-                <div class="bg-blue-50 p-4 rounded-md">
-                    <div id="results-summary" class="grid grid-cols-2 gap-4">
-                        <!-- Results will be populated here by JavaScript -->
-                    </div>
-                </div>
-            </div>
-            
             <div>
-                <h3 class="text-xl font-medium mb-3">Grafische weergave</h3>
-                <div class="bg-white p-4 rounded-md border border-gray-200">
-                    <div class="flex justify-center">
-                        <div class="radar-chart-container w-full max-w-md">
-                            <canvas id="radar-chart" width="400" height="400"></canvas>
-                        </div>
-                    </div>
-                </div>
+              <label class="block text-gray-700 font-medium mb-2"
+                >Toelichting (optioneel):</label
+              >
+              <textarea
+                name="comment-6"
+                rows="3"
+                class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+              ></textarea>
             </div>
-            
-            <div class="mt-6">
-                <h3 class="text-xl font-medium mb-3">Jouw toelichtingen</h3>
-                <div id="comments-container" class="space-y-4">
-                    <!-- Comments will be populated here by JavaScript -->
-                </div>
+          </div>
+
+          <!-- Kwalificatie 7 -->
+          <div class="qualification-section mb-8 border-b pb-6">
+            <h2 class="text-2xl font-semibold text-blue-700 mb-3">
+              Eindkwalificatie 7: Schakelen en verbinden
+            </h2>
+            <div class="mb-4">
+              <div class="bg-gray-50 p-4 rounded-md mb-4">
+                <h3 class="text-lg font-medium text-blue-600 mb-2">
+                  Voldoende:
+                </h3>
+                <ul class="list-disc pl-6 text-gray-700">
+                  <li>Ik ben regisseur van het onderzoeksproces.</li>
+                  <li>
+                    Ik kan contacten inzetten in verschillende situaties om
+                    doelen te bereiken.
+                  </li>
+                  <li>
+                    Ik weet wat er nodig is om relevante verbindingen te leggen
+                    tussen mensen en de verschillende functies/disciplines en
+                    niveaus en kan daar soepel tussen schakelen.
+                  </li>
+                  <li>
+                    Ik ben bewust van culturele diversiteit en houd daar
+                    rekening mee.
+                  </li>
+                </ul>
+              </div>
+              <div class="bg-blue-50 p-4 rounded-md mb-4">
+                <h3 class="text-lg font-medium text-blue-600 mb-2">
+                  Onderscheidend:
+                </h3>
+                <ul class="list-disc pl-6 text-gray-700">
+                  <li>
+                    Ik weet relevante stakeholders (in- en extern) bij het
+                    traject optimaal te betrekken en in te zetten om tot een
+                    optimaal resultaat te komen.
+                  </li>
+                  <li>Ik wissel in rol afhankelijk van de context.</li>
+                </ul>
+              </div>
             </div>
+
+            <div class="mb-4">
+              <label class="block text-gray-700 font-medium mb-2"
+                >Je score:</label
+              >
+              <div class="flex space-x-4">
+                <label class="inline-flex items-center mb-2">
+                  <input
+                    type="radio"
+                    name="score-7"
+                    value="0"
+                    class="form-radio text-blue-600"
+                  />
+                  <span class="ml-2">0 - Onvoldoende</span>
+                </label>
+                <label class="inline-flex items-center mb-2">
+                  <input
+                    type="radio"
+                    name="score-7"
+                    value="1"
+                    class="form-radio text-blue-600"
+                  />
+                  <span class="ml-2">1 - Voldoende</span>
+                </label>
+                <label class="inline-flex items-center mb-2">
+                  <input
+                    type="radio"
+                    name="score-7"
+                    value="2"
+                    class="form-radio text-blue-600"
+                  />
+                  <span class="ml-2">2 - Goed</span>
+                </label>
+                <label class="inline-flex items-center mb-2">
+                  <input
+                    type="radio"
+                    name="score-7"
+                    value="3"
+                    class="form-radio text-blue-600"
+                  />
+                  <span class="ml-2">3 - Onderscheidend</span>
+                </label>
+              </div>
+            </div>
+
+            <div>
+              <label class="block text-gray-700 font-medium mb-2"
+                >Toelichting (optioneel):</label
+              >
+              <textarea
+                name="comment-7"
+                rows="3"
+                class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+              ></textarea>
+            </div>
+          </div>
+
+          <!-- Kwalificatie 8 -->
+          <div class="qualification-section mb-8 border-b pb-6">
+            <h2 class="text-2xl font-semibold text-blue-700 mb-3">
+              Eindkwalificatie 8: Professionaliseren
+            </h2>
+            <div class="mb-4">
+              <div class="bg-gray-50 p-4 rounded-md mb-4">
+                <h3 class="text-lg font-medium text-blue-600 mb-2">
+                  Voldoende:
+                </h3>
+                <ul class="list-disc pl-6 text-gray-700">
+                  <li>
+                    Ik verspreid en borg opgedane kennis en lever daarmee een
+                    bijdrage aan de ontwikkeling van de organisatie en de
+                    bedrijfskundige beroepspraktijk.
+                  </li>
+                  <li>Ik verantwoord mijn eigen handelen.</li>
+                  <li>
+                    Ik kan in een continu proces reflecteren op mijn eigen
+                    handelen en toekomstige ontwikkelproces.
+                  </li>
+                </ul>
+              </div>
+              <div class="bg-blue-50 p-4 rounded-md mb-4">
+                <h3 class="text-lg font-medium text-blue-600 mb-2">
+                  Onderscheidend:
+                </h3>
+                <ul class="list-disc pl-6 text-gray-700">
+                  <li>
+                    Ik ben me bewust van de rol die ik heb aangenomen in het
+                    onderzoeksproces.
+                  </li>
+                  <li>
+                    Ik heb die rol bewust afgestemd op het vraagstuk, de
+                    organisatie en mijn eigen voorkeuren.
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="mb-4">
+              <label class="block text-gray-700 font-medium mb-2"
+                >Je score:</label
+              >
+              <div class="flex space-x-4">
+                <label class="inline-flex items-center mb-2">
+                  <input
+                    type="radio"
+                    name="score-8"
+                    value="0"
+                    class="form-radio text-blue-600"
+                  />
+                  <span class="ml-2">0 - Onvoldoende</span>
+                </label>
+                <label class="inline-flex items-center mb-2">
+                  <input
+                    type="radio"
+                    name="score-8"
+                    value="1"
+                    class="form-radio text-blue-600"
+                  />
+                  <span class="ml-2">1 - Voldoende</span>
+                </label>
+                <label class="inline-flex items-center mb-2">
+                  <input
+                    type="radio"
+                    name="score-8"
+                    value="2"
+                    class="form-radio text-blue-600"
+                  />
+                  <span class="ml-2">2 - Goed</span>
+                </label>
+                <label class="inline-flex items-center mb-2">
+                  <input
+                    type="radio"
+                    name="score-8"
+                    value="3"
+                    class="form-radio text-blue-600"
+                  />
+                  <span class="ml-2">3 - Onderscheidend</span>
+                </label>
+              </div>
+            </div>
+
+            <div>
+              <label class="block text-gray-700 font-medium mb-2"
+                >Toelichting (optioneel):</label
+              >
+              <textarea
+                name="comment-8"
+                rows="3"
+                class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+              ></textarea>
+            </div>
+          </div>
+
+          <!-- Kwalificatie 9 -->
+          <div class="qualification-section mb-8">
+            <h2 class="text-2xl font-semibold text-blue-700 mb-3">
+              Eindkwalificatie 9: Handelen vanuit waarden
+            </h2>
+            <div class="mb-4">
+              <div class="bg-gray-50 p-4 rounded-md mb-4">
+                <h3 class="text-lg font-medium text-blue-600 mb-2">
+                  Voldoende:
+                </h3>
+                <ul class="list-disc pl-6 text-gray-700">
+                  <li>
+                    Ik ben me bewust vanuit welke waarden en normen ik gehandeld
+                    heb.
+                  </li>
+                  <li>
+                    Ik leg op basis hiervan verantwoording af over keuzes die ik
+                    heb gemaakt.
+                  </li>
+                  <li>
+                    Ik streef bij het oplossen van bedrijfskundige vraagstukken
+                    naar duurzame maatschappelijk verantwoorde oplossingen.
+                  </li>
+                </ul>
+              </div>
+              <div class="bg-blue-50 p-4 rounded-md mb-4">
+                <h3 class="text-lg font-medium text-blue-600 mb-2">
+                  Onderscheidend:
+                </h3>
+                <ul class="list-disc pl-6 text-gray-700">
+                  <li>
+                    Ik kan op de gemaakte keuzes kritisch reflecteren rondom
+                    ethische dilemma's.
+                  </li>
+                  <li>
+                    Ik kan de consequenties van keuzes overzien, niet alleen van
+                    de output, maar ook van de outcome (mogelijke effecten en de
+                    impact daarvan) voor de langere termijn.
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="mb-4">
+              <label class="block text-gray-700 font-medium mb-2"
+                >Je score:</label
+              >
+              <div class="flex space-x-4">
+                <label class="inline-flex items-center mb-2">
+                  <input
+                    type="radio"
+                    name="score-9"
+                    value="0"
+                    class="form-radio text-blue-600"
+                  />
+                  <span class="ml-2">0 - Onvoldoende</span>
+                </label>
+                <label class="inline-flex items-center mb-2">
+                  <input
+                    type="radio"
+                    name="score-9"
+                    value="1"
+                    class="form-radio text-blue-600"
+                  />
+                  <span class="ml-2">1 - Voldoende</span>
+                </label>
+                <label class="inline-flex items-center mb-2">
+                  <input
+                    type="radio"
+                    name="score-9"
+                    value="2"
+                    class="form-radio text-blue-600"
+                  />
+                  <span class="ml-2">2 - Goed</span>
+                </label>
+                <label class="inline-flex items-center mb-2">
+                  <input
+                    type="radio"
+                    name="score-9"
+                    value="3"
+                    class="form-radio text-blue-600"
+                  />
+                  <span class="ml-2">3 - Onderscheidend</span>
+                </label>
+              </div>
+            </div>
+
+            <div>
+              <label class="block text-gray-700 font-medium mb-2"
+                >Toelichting (optioneel):</label
+              >
+              <textarea
+                name="comment-9"
+                rows="3"
+                class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+              ></textarea>
+            </div>
+          </div>
         </div>
+
+        <div
+          class="flex flex-col sm:flex-row justify-between mt-8 space-y-4 sm:space-y-0"
+        >
+          <button
+            id="reset-btn"
+            class="px-4 py-2 bg-gray-300 text-gray-700 rounded-md hover:bg-gray-400 focus:outline-none focus:ring-2 focus:ring-gray-500"
+          >
+            Reset formulier
+          </button>
+          <button
+            id="submit-btn"
+            class="px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
+          >
+            Resultaten bekijken
+          </button>
+        </div>
+      </div>
+
+      <!-- Results Section (initially hidden) -->
+      <div
+        id="results-section"
+        class="bg-white rounded-lg shadow-lg p-6 mb-8 hidden"
+      >
+        <h2 class="text-2xl font-bold text-blue-800 mb-4">Jouw resultaten</h2>
+
+        <div class="mb-6">
+          <div
+            class="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-4 space-y-2 sm:space-y-0"
+          >
+            <h3 class="text-xl font-medium">Jouw scores</h3>
+            <div
+              class="flex flex-col sm:flex-row space-y-2 sm:space-y-0 sm:space-x-4"
+            >
+              <button
+                id="save-btn"
+                class="px-4 py-2 bg-green-600 text-white rounded-md hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-500"
+              >
+                Opslaan als PDF
+              </button>
+              <button
+                id="back-to-form"
+                class="px-4 py-2 bg-gray-300 text-gray-700 rounded-md hover:bg-gray-400 focus:outline-none focus:ring-2 focus:ring-gray-500"
+              >
+                Terug naar formulier
+              </button>
+            </div>
+          </div>
+          <div class="bg-blue-50 p-4 rounded-md">
+            <div
+              id="results-summary"
+              class="grid grid-cols-1 md:grid-cols-2 gap-4"
+            >
+              <!-- Results will be populated here by JavaScript -->
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <h3 class="text-xl font-medium mb-3">Grafische weergave</h3>
+          <div class="bg-white p-4 rounded-md border border-gray-200">
+            <div class="flex justify-center">
+              <div class="radar-chart-container w-full max-w-md">
+                <canvas id="radar-chart" width="400" height="400"></canvas>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="mt-6">
+          <h3 class="text-xl font-medium mb-3">Jouw toelichtingen</h3>
+          <div id="comments-container" class="space-y-4">
+            <!-- Comments will be populated here by JavaScript -->
+          </div>
+        </div>
+      </div>
     </div>
 
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            // DOM Elements
-            const quizContainer = document.getElementById('quiz-container');
-            const resultsSection = document.getElementById('results-section');
-            const submitBtn = document.getElementById('submit-btn');
-            const resetBtn = document.getElementById('reset-btn');
-            const saveBtn = document.getElementById('save-btn');
-            const backToFormBtn = document.getElementById('back-to-form');
-            const resultsSummary = document.getElementById('results-summary');
-            const commentsContainer = document.getElementById('comments-container');
-            
-            // Submit form and show results
-            submitBtn.addEventListener('click', function() {
-                // Collect all scores
-                const scores = {};
-                const comments = {};
-                let allAnswered = true;
-                
-                // Check if all questions are answered
-                for (let i = 6; i <= 9; i++) {
-                    const selectedRadio = document.querySelector(`input[name="score-${i}"]:checked`);
-                    if (!selectedRadio) {
-                        allAnswered = false;
-                        break;
-                    }
-                    scores[i] = parseInt(selectedRadio.value);
-                    comments[i] = document.querySelector(`textarea[name="comment-${i}"]`).value;
-                }
-                
-                if (!allAnswered) {
-                    alert('Geef alsjeblieft een score voor alle eindkwalificaties.');
-                    return;
-                }
-                
-                // Display results
-                displayResults(scores, comments);
-                
-                // Hide quiz, show results
-                quizContainer.classList.add('hidden');
-                resultsSection.classList.remove('hidden');
+      document.addEventListener("DOMContentLoaded", function () {
+        // DOM Elements
+        const quizContainer = document.getElementById("quiz-container");
+        const resultsSection = document.getElementById("results-section");
+        const submitBtn = document.getElementById("submit-btn");
+        const resetBtn = document.getElementById("reset-btn");
+        const saveBtn = document.getElementById("save-btn");
+        const backToFormBtn = document.getElementById("back-to-form");
+        const resultsSummary = document.getElementById("results-summary");
+        const commentsContainer = document.getElementById("comments-container");
+
+        // Submit form and show results
+        submitBtn.addEventListener("click", function () {
+          // Collect all scores
+          const scores = {};
+          const comments = {};
+          let allAnswered = true;
+
+          // Check if all questions are answered
+          for (let i = 6; i <= 9; i++) {
+            const selectedRadio = document.querySelector(
+              `input[name="score-${i}"]:checked`
+            );
+            if (!selectedRadio) {
+              allAnswered = false;
+              break;
+            }
+            scores[i] = parseInt(selectedRadio.value);
+            comments[i] = document.querySelector(
+              `textarea[name="comment-${i}"]`
+            ).value;
+          }
+
+          if (!allAnswered) {
+            alert("Geef alsjeblieft een score voor alle eindkwalificaties.");
+            return;
+          }
+
+          // Display results
+          displayResults(scores, comments);
+
+          // Hide quiz, show results
+          quizContainer.classList.add("hidden");
+          resultsSection.classList.remove("hidden");
+        });
+
+        // Reset form
+        resetBtn.addEventListener("click", function () {
+          if (confirm("Weet je zeker dat je alle antwoorden wilt wissen?")) {
+            // Reset all radio buttons
+            document
+              .querySelectorAll('input[type="radio"]')
+              .forEach((radio) => {
+                radio.checked = false;
+              });
+
+            // Reset all textareas
+            document.querySelectorAll("textarea").forEach((textarea) => {
+              textarea.value = "";
             });
-            
-            // Reset form
-            resetBtn.addEventListener('click', function() {
-                if (confirm('Weet je zeker dat je alle antwoorden wilt wissen?')) {
-                    // Reset all radio buttons
-                    document.querySelectorAll('input[type="radio"]').forEach(radio => {
-                        radio.checked = false;
-                    });
-                    
-                    // Reset all textareas
-                    document.querySelectorAll('textarea').forEach(textarea => {
-                        textarea.value = '';
-                    });
-                }
-            });
-            
-            // Go back to form
-            backToFormBtn.addEventListener('click', function() {
-                quizContainer.classList.remove('hidden');
-                resultsSection.classList.add('hidden');
-            });
-            
-            // Save as PDF
-            saveBtn.addEventListener('click', function() {
-                const element = document.body;
-                const options = {
-                    margin: 1,
-                    filename: 'zelfbeoordeling-eindkwalificaties.pdf',
-                    image: { type: 'jpeg', quality: 0.98 },
-                    html2canvas: { scale: 2 },
-                    jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
-                };
-                
-                // First, check if all questions are answered
-                let allAnswered = true;
-                for (let i = 6; i <= 9; i++) {
-                    const selectedRadio = document.querySelector(`input[name="score-${i}"]:checked`);
-                    if (!selectedRadio) {
-                        allAnswered = false;
-                        break;
-                    }
-                }
-                
-                if (!allAnswered) {
-                    alert('Geef alsjeblieft een score voor alle eindkwalificaties voordat je opslaat.');
-                    return;
-                }
-                
-                // If the results section is hidden, show it temporarily and hide it after PDF generation
-                const wasHidden = resultsSection.classList.contains('hidden');
-                
-                if (wasHidden) {
-                    // Collect scores and comments
-                    const scores = {};
-                    const comments = {};
-                    for (let i = 6; i <= 9; i++) {
-                        const selectedRadio = document.querySelector(`input[name="score-${i}"]:checked`);
-                        scores[i] = parseInt(selectedRadio.value);
-                        comments[i] = document.querySelector(`textarea[name="comment-${i}"]`).value;
-                    }
-                    
-                    // Display results temporarily
-                    displayResults(scores, comments);
-                    
-                    // Show results section
-                    resultsSection.classList.remove('hidden');
-                }
-                
-                // Generate PDF
-                html2pdf().from(element).set(options).save().then(() => {
-                    // If results were hidden before, hide them again after PDF generation
-                    if (wasHidden) {
-                        resultsSection.classList.add('hidden');
-                    }
-                });
-            });
-            
-            // Display results function
-            function displayResults(scores, comments) {
-                // Clear previous results
-                resultsSummary.innerHTML = '';
-                commentsContainer.innerHTML = '';
-                
-                // Get qualification names
-                const qualificationNames = {
-                    6: 'Sociaal communicatieve vaardigheden',
-                    7: 'Schakelen en verbinden',
-                    8: 'Professionaliseren',
-                    9: 'Handelen vanuit waarden'
-                };
-                
-                // Get score descriptions
-                const scoreDescriptions = ['Onvoldoende', 'Voldoende', 'Goed', 'Uitstekend'];
-                
-                // Calculate average score
-                const totalScore = Object.values(scores).reduce((sum, score) => sum + score, 0);
-                const averageScore = totalScore / Object.keys(scores).length;
-                
-                // Add scores to summary
-                for (const [qualId, score] of Object.entries(scores)) {
-                    const scoreElement = document.createElement('div');
-                    scoreElement.className = 'p-2';
-                    scoreElement.innerHTML = `
-                        <p class="font-medium">${qualId}. ${qualificationNames[qualId]}</p>
-                        <p class="text-lg">Score: <span class="${getScoreColorClass(score)}">${score} - ${scoreDescriptions[score]}</span></p>
+          }
+        });
+
+        // Go back to form
+        backToFormBtn.addEventListener("click", function () {
+          quizContainer.classList.remove("hidden");
+          resultsSection.classList.add("hidden");
+        });
+
+        // Save as PDF
+        saveBtn.addEventListener("click", function () {
+          const element = document.body;
+          const options = {
+            margin: 1,
+            filename: "zelfbeoordeling-eindkwalificaties.pdf",
+            image: { type: "jpeg", quality: 0.98 },
+            html2canvas: { scale: 2 },
+            jsPDF: { unit: "mm", format: "a4", orientation: "portrait" },
+          };
+
+          // Generate PDF
+          html2pdf().from(element).set(options).save();
+        });
+
+        // Display results function
+        function displayResults(scores, comments) {
+          // Clear previous results
+          resultsSummary.innerHTML = "";
+          commentsContainer.innerHTML = "";
+
+          // Get qualification names
+          const qualificationNames = {
+            6: "Sociaal communicatieve vaardigheden",
+            7: "Schakelen en verbinden",
+            8: "Professionaliseren",
+            9: "Handelen vanuit waarden",
+          };
+
+          // Get score descriptions
+          const scoreDescriptions = [
+            "Onvoldoende",
+            "Voldoende",
+            "Goed",
+            "Onderscheidend",
+          ];
+
+          // Berekening van gemiddelde verwijderd
+
+          // Add scores to summary
+          for (const [qualId, score] of Object.entries(scores)) {
+            const scoreElement = document.createElement("div");
+            scoreElement.className = "p-2";
+            scoreElement.innerHTML = `
+                        <p class="font-medium">${qualId}. ${
+              qualificationNames[qualId]
+            }</p>
+                        <p class="text-lg">Score: <span class="${getScoreColorClass(
+                          score
+                        )}">${score} - ${scoreDescriptions[score]}</span></p>
                     `;
-                    resultsSummary.appendChild(scoreElement);
-                }
-                
-                // Add average score
-                const averageElement = document.createElement('div');
-                averageElement.className = 'p-2 col-span-2 mt-2 border-t pt-4';
-                averageElement.innerHTML = `
-                    <p class="font-medium">Gemiddelde score:</p>
-                    <p class="text-lg font-bold ${getScoreColorClass(Math.round(averageScore))}">
-                        ${averageScore.toFixed(1)}
-                    </p>
-                `;
-                resultsSummary.appendChild(averageElement);
-                
-                // Add comments
-                for (const [qualId, comment] of Object.entries(comments)) {
-                    if (comment.trim() !== '') {
-                        const commentElement = document.createElement('div');
-                        commentElement.className = 'bg-gray-50 p-4 rounded-md';
-                        commentElement.innerHTML = `
+            resultsSummary.appendChild(scoreElement);
+          }
+
+          // Gemiddelde verwijderd zoals gevraagd
+
+          // Add comments
+          for (const [qualId, comment] of Object.entries(comments)) {
+            if (comment.trim() !== "") {
+              const commentElement = document.createElement("div");
+              commentElement.className = "bg-gray-50 p-4 rounded-md";
+              commentElement.innerHTML = `
                             <h4 class="font-medium mb-2">${qualId}. ${qualificationNames[qualId]}</h4>
                             <p class="text-gray-700">${comment}</p>
                         `;
-                        commentsContainer.appendChild(commentElement);
-                    }
-                }
-                
-                // If no comments, show message
-                if (commentsContainer.children.length === 0) {
-                    commentsContainer.innerHTML = '<p class="text-gray-500 italic">Geen toelichtingen gegeven.</p>';
-                }
-                
-                // Create radar chart
-                createRadarChart(scores, qualificationNames);
+              commentsContainer.appendChild(commentElement);
             }
-            
-            // Get color class based on score
-            function getScoreColorClass(score) {
-                switch (parseInt(score)) {
-                    case 0: return 'text-red-600';
-                    case 1: return 'text-yellow-600';
-                    case 2: return 'text-green-600';
-                    case 3: return 'text-blue-600';
-                    default: return 'text-gray-600';
-                }
-            }
-            
-            // Radar chart creation
-            function createRadarChart(scores, qualificationNames) {
-                // If Chart.js is not loaded, load it
-                if (typeof Chart === 'undefined') {
-                    const script = document.createElement('script');
-                    script.src = 'https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js';
-                    script.onload = function() {
-                        renderChart(scores, qualificationNames);
-                    };
-                    document.head.appendChild(script);
-                } else {
-                    renderChart(scores, qualificationNames);
-                }
-            }
-            
-            function renderChart(scores, qualificationNames) {
-                const ctx = document.getElementById('radar-chart').getContext('2d');
-                
-                // Destroy existing chart if it exists
-                if (window.radarChart) {
-                    window.radarChart.destroy();
-                }
-                
-                // Prepare data for radar chart
-                const labels = Object.entries(qualificationNames).map(([id, name]) => `${id}. ${name}`);
-                const data = Object.keys(qualificationNames).map(id => scores[id]);
-                
-                // Create chart
-                window.radarChart = new Chart(ctx, {
-                    type: 'radar',
-                    data: {
-                        labels: labels,
-                        datasets: [{
-                            label: 'Jouw scores',
-                            data: data,
-                            backgroundColor: 'rgba(54, 162, 235, 0.2)',
-                            borderColor: 'rgb(54, 162, 235)',
-                            pointBackgroundColor: 'rgb(54, 162, 235)',
-                            pointBorderColor: '#fff',
-                            pointHoverBackgroundColor: '#fff',
-                            pointHoverBorderColor: 'rgb(54, 162, 235)'
-                        }]
-                    },
-                    options: {
-                        scales: {
-                            r: {
-                                angleLines: {
-                                    display: true
-                                },
-                                suggestedMin: 0,
-                                suggestedMax: 3,
-                                ticks: {
-                                    stepSize: 1
-                                }
-                            }
-                        }
-                    }
-                });
-            }
-        });
+          }
+
+          // If no comments, show message
+          if (commentsContainer.children.length === 0) {
+            commentsContainer.innerHTML =
+              '<p class="text-gray-500 italic">Geen toelichtingen gegeven.</p>';
+          }
+
+          // Create radar chart
+          createRadarChart(scores, qualificationNames);
+        }
+
+        // Get color class based on score
+        function getScoreColorClass(score) {
+          switch (parseInt(score)) {
+            case 0:
+              return "text-red-600";
+            case 1:
+              return "text-yellow-600";
+            case 2:
+              return "text-green-600";
+            case 3:
+              return "text-blue-600";
+            default:
+              return "text-gray-600";
+          }
+        }
+
+        // Radar chart creation
+        function createRadarChart(scores, qualificationNames) {
+          // If Chart.js is not loaded, load it
+          if (typeof Chart === "undefined") {
+            const script = document.createElement("script");
+            script.src =
+              "https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js";
+            script.onload = function () {
+              renderChart(scores, qualificationNames);
+            };
+            document.head.appendChild(script);
+          } else {
+            renderChart(scores, qualificationNames);
+          }
+        }
+
+        function renderChart(scores, qualificationNames) {
+          const ctx = document.getElementById("radar-chart").getContext("2d");
+
+          // Destroy existing chart if it exists
+          if (window.radarChart) {
+            window.radarChart.destroy();
+          }
+
+          // Prepare data for radar chart
+          const labels = Object.entries(qualificationNames).map(
+            ([id, name]) => `${id}. ${name}`
+          );
+          const data = Object.keys(qualificationNames).map((id) => scores[id]);
+
+          // Create chart
+          window.radarChart = new Chart(ctx, {
+            type: "radar",
+            data: {
+              labels: labels,
+              datasets: [
+                {
+                  label: "Jouw scores",
+                  data: data,
+                  backgroundColor: "rgba(54, 162, 235, 0.2)",
+                  borderColor: "rgb(54, 162, 235)",
+                  pointBackgroundColor: "rgb(54, 162, 235)",
+                  pointBorderColor: "#fff",
+                  pointHoverBackgroundColor: "#fff",
+                  pointHoverBorderColor: "rgb(54, 162, 235)",
+                },
+              ],
+            },
+            options: {
+              scales: {
+                r: {
+                  angleLines: {
+                    display: true,
+                  },
+                  suggestedMin: 0,
+                  suggestedMax: 3,
+                  ticks: {
+                    stepSize: 1,
+                  },
+                },
+              },
+            },
+          });
+        }
+      });
     </script>
-</body>
+  </body>
 </html>
