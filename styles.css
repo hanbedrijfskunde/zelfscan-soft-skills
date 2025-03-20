@@ -1,0 +1,17 @@
+/* Additional Custom Styles */
+.active-tab {
+  color: rgb(30, 64, 175);
+  border-color: rgb(30, 64, 175);
+}
+
+.whitespace-pre-line {
+  white-space: pre-line;
+}
+
+/* Responsive adjustments */
+@media (max-width: 640px) {
+  .radar-chart-container {
+    width: 100%;
+    max-width: 100%;
+  }
+}
